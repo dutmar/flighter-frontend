@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+import Flights from './components/Flights';
+import Login from './components/Login';
 
 function App() {
+  const[loggedIn, setLoggedIn] = React.useState(false);
+
+  const login = () => {
+    setLoggedIn(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <NavLink to='/flights'>Flights</NavLink>
+      </div>
+      <Routes>
+          <Route path='/flights' render={props => (
+            <Flights {...props} loggedIn={loggedIn} />
+          )} />
+          <Route path='/login' render={props => (
+            <Login {...props} login={login}/>
+          )} />
+      </Routes>
+    </Router>
   );
 }
 
