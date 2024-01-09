@@ -7,16 +7,16 @@ const Login = (props) => {
     const [password, setPassword] = React.useState('');
     const handleSubmit = (e) => {
         e.preventDefault();
-        apiClient.get('/sanctum/csrf-cookie')
+        apiClient.get('sanctum/csrf-cookie')
             .then(response => {
-                apiClient.post('/api/login', {
+                apiClient.post('api/login', {
                     email: email,
                     password: password
                 }).then(response => {
                     if(response.status === 204) {
                         props.login();
+                        console.log("uspio");
                     }
-                    console.log(response)
                 })
             });
     }

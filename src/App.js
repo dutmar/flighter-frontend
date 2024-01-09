@@ -4,10 +4,13 @@ import Flights from './components/Flights';
 import Login from './components/Login';
 
 function App() {
-  const[loggedIn, setLoggedIn] = React.useState(false);
 
+  const [loggedIn, setLoggedIn] = React.useState(
+    sessionStorage.getItem('loggedIn') == 'true' || false
+  );
   const login = () => {
     setLoggedIn(true);
+    sessionStorage.setItem('loggedIn', true);
   };
 
   return (
@@ -16,11 +19,11 @@ function App() {
         <NavLink to='/flights'>Flights</NavLink>
       </div>
       <Routes>
-          <Route path='/flights' render={props => (
+          <Route path='/flights' Component={props => (
             <Flights {...props} loggedIn={loggedIn} />
           )} />
-          <Route path='/login' render={props => (
-            <Login {...props} login={login}/>
+          <Route path='/login' Component={props => (
+            <Login {...props} login={login} />
           )} />
       </Routes>
     </Router>
