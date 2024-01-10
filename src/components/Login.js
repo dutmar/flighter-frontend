@@ -1,10 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import apiClient from '../services/api';
+import Navbar from './Navbar';
  
 const Login = (props) => {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         apiClient.get('sanctum/csrf-cookie')
@@ -13,7 +15,7 @@ const Login = (props) => {
                     email: email,
                     password: password
                 }).then(response => {
-                    if(response.status === 204) {
+                    if(response.status === 201) {
                         props.login();
                         console.log("uspio");
                     }
@@ -22,6 +24,7 @@ const Login = (props) => {
     }
     return (
         <div>
+            <Navbar/>
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
                 <input
