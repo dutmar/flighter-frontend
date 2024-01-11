@@ -1,14 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import logo from '../img/planeLogo.png';
+import '../styles/navbar.css';
 
 const Navbar = () => {
   return (
     <nav>
         <div>
-            <img src={'src/planeLogo.png'} alt='Logo' ></img>
+            <a href="/">
+                <img src={logo} alt='Logo' width={70} height={64} style={{ borderRadius: '50%' }} ></img>
+            </a>
         </div>
 
-        <div>
+        <div className='links'>
             <ul>
                 <li>
                     <NavLink to="/">Home</NavLink>
@@ -25,7 +29,7 @@ const Navbar = () => {
             </ul>
         </div>
 
-        <div>
+        <div className='links'>
             <ul>
                 <li>
                     <NavLink to="/login">Login</NavLink>
