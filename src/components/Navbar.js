@@ -2,8 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../img/planeLogo.png';
 import '../styles/navbar.css';
+import { useAuth } from './AuthContext';
 
 const Navbar = () => {
+    const { isLoggedIn, login, logout } = useAuth();
+
   return (
     <nav>
         <div>
@@ -29,7 +32,12 @@ const Navbar = () => {
             </ul>
         </div>
 
-        <div className='links'>
+        {isLoggedIn ? (
+            <div>
+                <h3>Hello User</h3>
+            </div>
+        ) : (
+            <div className='links'>
             <ul>
                 <li>
                     <NavLink to="/login">Login</NavLink>
@@ -39,6 +47,7 @@ const Navbar = () => {
                 </li>
             </ul>
         </div>
+        )}
         
     </nav>
   );
