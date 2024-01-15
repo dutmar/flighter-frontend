@@ -1,0 +1,4 @@
+.listFlights {
+    display: flex;
+    flex-direction: column;
+}

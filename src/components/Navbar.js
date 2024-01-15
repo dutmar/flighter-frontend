@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../img/planeLogo.png';
+import shoppingCart from '../img/shopping-cart.png';
 import '../styles/navbar.css';
 import { useAuth } from './AuthContext';
 import apiClient from '../services/api';
@@ -53,10 +54,14 @@ const Navbar = () => {
         </div>
 
         {isLoggedIn ? (
-            <div>
-                <div>Welcome, UserName, treba napraviti{/*{userName}*/}</div>
+            <div className='links-loggedIn'>
+                <div>UserName{/*{userName}*/}</div>
+                <a href='/cart'>
+                    <img src={shoppingCart} alt='Cart' width={40} height={40}></img>
+                </a>
                 <button onClick={handleSubmit}>Logout</button>
             </div>
+
         ) : (
             <div className='links'>
             <ul>

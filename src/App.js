@@ -6,6 +6,7 @@ import Register from './components/Register';
 import HomePage from './components/HomePage';
 import About from './components/About';
 import Contact from './components/Contact';
+import ShoppingCart from './components/ShoppingCart';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
     <Router>
       <Routes>
           <Route path='/' Component={HomePage} />
+          <Route path='/cart' Component={ShoppingCart} />
           <Route path='/about' Component={About} /> 
           <Route path='/contact' Component={Contact} /> 
           <Route path='/flights' Component={props => (

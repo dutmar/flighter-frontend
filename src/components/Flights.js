@@ -3,6 +3,8 @@ import axios from 'axios';
 import apiClient from '../services/api';
 import Navbar from './Navbar';
 import { useAuth } from './AuthContext';
+import ShoppingCart from './ShoppingCart';
+import '../styles/flights.css';
  
 const Flights = () => {
     const [flights, setFlights] = React.useState([]);
@@ -16,14 +18,17 @@ const Flights = () => {
         .catch(error => console.error(error));
     }, []);
     const flightsList = flights.map((flight) =>
-        <li key={flight.id}>{flight.origin} - {flight.destination}</li>
+        <div>
+            <li key={flight.id}>{flight.origin} - {flight.destination}</li>
+        </div>
+
     );
     //PROBA ZA LOGIN STATE, TREBA PROMJENITI!!!!!
     return (
         <div>
             <Navbar />
             {isLoggedIn ? (
-                <ul>{flightsList}</ul>
+                <ul className='listFlights'>{flightsList}</ul>
             ) : (
                 <h1>LOG IN!!!!</h1>
             )}

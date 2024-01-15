@@ -3,3 +3,8 @@ nav, ul {
     flex-direction: row;
     gap: 20px;
 }
+
+.links-loggedIn {
+    display: flex;
+    gap: 10px;
+}
