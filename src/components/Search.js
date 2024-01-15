@@ -4,16 +4,23 @@ import apiClient from "../services/api";
 const Search = () => {
   const[origin, setOrigin] = React.useState('');
   //const[destination, setDestination] = React.useState('');
+  const [flights, setFlights] = React.useState([]);
   
-  const handleSubmit = (e) => {
-    apiClient.get('api/searchTest', {
+  const handleSubmit = () => {
+    apiClient.get('api/search',{}, {
       params: {
         query: origin
       }
-    }).then(response => {
-      console.log(response);
     })
-  }
+    .then(response => {
+      setFlights(response.data.result);
+    })
+    .catch(error => console.log(error));
+  };
+
+  const flightsList = flights.map((flight) =>
+        <li key={flight.id}>{flight.origin} - {flight.destination}</li>
+    );
 
   return (
     <div>
@@ -33,6 +40,8 @@ const Search = () => {
           /> */}
         <button type="submit">Search</button>
       </form>
+
+      <ul>{flightsList}</ul>
     </div>
   );
 }

@@ -1,11 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../img/planeLogo.png';
 import '../styles/navbar.css';
 import { useAuth } from './AuthContext';
+import apiClient from '../services/api';
 
 const Navbar = () => {
     const { isLoggedIn, login, logout } = useAuth();
+    // const [userName, setUserName] = React.useState([]);
+
+    // useEffect(() => {
+    //     const getUserName = async () => {
+    //         try {
+    //             const response = await apiClient.get('/api/user');
+
+    //             setUserName(response.data.name);
+    //         } catch(error) {
+    //             console.error("error feteching user name:", error.message);
+    //         }
+    //     };
+
+    //     getUserName();
+    // }, []);
+
+    const handleSubmit = () => {
+        logout();
+    }
 
   return (
     <nav>
@@ -34,7 +54,8 @@ const Navbar = () => {
 
         {isLoggedIn ? (
             <div>
-                <h3>Hello User</h3>
+                <div>Welcome, UserName, treba napraviti{/*{userName}*/}</div>
+                <button onClick={handleSubmit}>Logout</button>
             </div>
         ) : (
             <div className='links'>
