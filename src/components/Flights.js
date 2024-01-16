@@ -8,7 +8,7 @@ import '../styles/flights.css';
  
 const Flights = () => {
     const [flights, setFlights] = React.useState([]);
-    const { isLoggedIn, login, logout } = useAuth();
+    // const { isLoggedIn, login, logout } = useAuth();
 
     React.useEffect(() => {
         apiClient.get('api/flights')
@@ -19,7 +19,7 @@ const Flights = () => {
     }, []);
     const flightsList = flights.map((flight) =>
         <div>
-            <li key={flight.id}>{flight.origin} - {flight.destination}</li>
+            <li key={flight.id}>{flight.airline}</li>
         </div>
 
     );
@@ -27,11 +27,8 @@ const Flights = () => {
     return (
         <div>
             <Navbar />
-            {isLoggedIn ? (
-                <ul className='listFlights'>{flightsList}</ul>
-            ) : (
-                <h1>LOG IN!!!!</h1>
-            )}
+
+            <ul className='listFlights'>{flightsList}</ul>
         </div>
     );
     

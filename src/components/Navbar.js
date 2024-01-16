@@ -56,9 +56,9 @@ const Navbar = () => {
         {isLoggedIn ? (
             <div className='links-loggedIn'>
                 <div>UserName{/*{userName}*/}</div>
-                <a href='/cart'>
+                <NavLink to="/cart">
                     <img src={shoppingCart} alt='Cart' width={40} height={40}></img>
-                </a>
+                </NavLink>
                 <button onClick={handleSubmit}>Logout</button>
             </div>
 

@@ -23,11 +23,8 @@ function App() {
           <Route path='/cart' Component={ShoppingCart} />
           <Route path='/about' Component={About} /> 
           <Route path='/contact' Component={Contact} /> 
-          <Route path='/flights' Component={props => (
-            <Flights {...props} loggedIn={loggedIn} />
-          )} />
-          <Route path='/login' Component={props => (
-            <Login {...props} login={login} />)} />
+          <Route path='/flights' Component={Flights} />
+          <Route path='/login' Component={Login} />
           <Route path='/register' Component={Register} />
       </Routes>
     </Router>
