@@ -13,7 +13,6 @@ const Login = () => {
     const { isLoggedIn, login, logout } = useAuth();
     const nav = useNavigate();
 
-
     const handleSubmit = (e) => {
         e.preventDefault();
         apiClient.get('sanctum/csrf-cookie')
@@ -24,8 +23,8 @@ const Login = () => {
                 }).then(response => {
                     if(response.status === 201) {
                         login();
+                        localStorage.setItem("profile", JSON.stringify(response.data.user.name));
                         nav("/");
-                        console.log("uspio");
                     }
                 })
             });

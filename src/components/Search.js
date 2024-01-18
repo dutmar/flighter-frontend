@@ -20,16 +20,6 @@ const Search = () => {
     .catch(error => console.error(error));
   }
   
-  //OVO RADI!!!!!
-  // React.useEffect(() => {
-  //   apiClient.get('api/search?query=${origin}', {
-  //   })
-  //   .then(response => {
-  //     setFlights(response.data)
-  //   })
-  //   .catch(error => console.error(error));
-  // }, []);
-  
   const flightsList = flights.map((flight) =>
         <li key={flight.id}>
           <div>

@@ -8,21 +8,11 @@ import apiClient from '../services/api';
 
 const Navbar = () => {
     const { isLoggedIn, login, logout } = useAuth();
-    // const [userName, setUserName] = React.useState([]);
+    const [name, setName] = React.useState(JSON.parse(localStorage.getItem("profile")));
 
-    // useEffect(() => {
-    //     const getUserName = async () => {
-    //         try {
-    //             const response = await apiClient.get('/api/user');
-
-    //             setUserName(response.data.name);
-    //         } catch(error) {
-    //             console.error("error feteching user name:", error.message);
-    //         }
-    //     };
-
-    //     getUserName();
-    // }, []);
+    const getName = (name) => {
+        setName(name);
+    }
 
     const handleSubmit = () => {
         logout();
@@ -55,7 +45,7 @@ const Navbar = () => {
 
         {isLoggedIn ? (
             <div className='links-loggedIn'>
-                <div>UserName{/*{userName}*/}</div>
+                <div>{name}</div>
                 <NavLink to="/cart">
                     <img src={shoppingCart} alt='Cart' width={40} height={40}></img>
                 </NavLink>
