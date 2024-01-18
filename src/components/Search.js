@@ -31,7 +31,7 @@ const Search = () => {
           <div>
             {flight.price}$
           </div>
-          <button>Add to cart</button>
+          <button onClick={localStorage.setItem("cart", JSON.stringify(flight.id))}>Add to cart</button>
         </li>
   );
 

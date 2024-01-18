@@ -4,15 +4,14 @@ import { useAuth } from './AuthContext';
 
 const ShoppingCart = () => {
   const { isLoggedIn, login, logout } = useAuth();
+  const [cart, setCart] = React.useState(JSON.parse(localStorage.getItem("cart")));
 
+  console.log(cart);
+  
   return (
     <div>
       <Navbar/>
-      {isLoggedIn ? (
-         <h2>Shopping Cart</h2>
-      ) : (
-        <h1>LOG IN</h1>
-      )}
+      <h2>Shopping Cart</h2>
     </div>
   );
 };
