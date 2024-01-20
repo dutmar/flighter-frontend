@@ -1,8 +1,6 @@
 import React from 'react';
-import axios from 'axios';
 import apiClient from '../services/api';
 import Navbar from './Navbar';
-import Flights from './Flights';
 import { useAuth } from './AuthContext';
 import { useNavigate } from 'react-router-dom';
  
