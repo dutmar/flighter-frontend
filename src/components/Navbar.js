@@ -21,9 +21,9 @@ const Navbar = () => {
   return (
     <nav>
         <div>
-            <a href="/">
+            <NavLink to='/'>
                 <img src={logo} alt='Logo' width={70} height={64} style={{ borderRadius: '50%' }} ></img>
-            </a>
+            </NavLink>
         </div>
 
         <div className='links'>
