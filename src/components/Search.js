@@ -31,7 +31,7 @@ const Search = () => {
 
   localStorage.setItem('cart', JSON.stringify(flightsInCart));
   
-  const flightsList = flights.map((flight) =>
+  const flightsList = flights.map((flight) => 
         <li key={flight.id}>
           <div>
           {flight.origin} - {flight.destination}
@@ -47,7 +47,6 @@ const Search = () => {
           ): (
             <div></div>
           )}
-          
         </li>
   );
 
