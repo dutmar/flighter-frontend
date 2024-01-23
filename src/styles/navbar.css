@@ -2,7 +2,7 @@ nav {
     padding: 10px;
     display: flex;
     flex-direction: row;
-    background-color: #d5bdaf;
+    background-color: #219ebc;
     align-items: center;
     justify-content: space-between;
 }
@@ -24,12 +24,12 @@ li {
 
 .li-links:hover {
     border-radius: 50%;
-    background-color: #d6ccc2;
+    background-color: #8ecae6;
 }
 
 .navlink {
     text-decoration: none;
-    color: black;
+    color: #ffb703;
     font-weight: 800;
 }
 

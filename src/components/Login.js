@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import { useAuth } from './AuthContext';
 import { useNavigate } from 'react-router-dom';
 import Footer from './Footer';
+import '../styles/login.css'
  
 const Login = () => {
     const [email, setEmail] = React.useState('');
@@ -36,7 +37,7 @@ const Login = () => {
             ) : (
                 <div>
                     <Navbar/>
-                    <h1>Login</h1>
+                    <h1 className='title'>Login</h1>
                     <form onSubmit={handleSubmit}>
                         <input
                             type="email"

@@ -4,6 +4,7 @@ import { useAuth } from './AuthContext';
 import apiClient from '../services/api';
 import { useNavigate } from 'react-router-dom';
 import Footer from './Footer';
+import '../styles/shoppingCart.css'
 
 const ShoppingCart = ({ object }) => {
   const { isLoggedIn, login, logout } = useAuth();
@@ -19,14 +20,12 @@ const ShoppingCart = ({ object }) => {
 
   if(cart) {
     var cartList = cart.map((flight) =>
-    <div>
-      <li key={flight.id}>
+      <div className='flight-in-list' key={flight.id}>
         <div>
         {flight.origin}-{flight.destination}
         </div>
         <div>{flight.price}$</div>
-      </li>
-    </div>
+      </div>
     );
   }
 
@@ -57,16 +56,17 @@ const ShoppingCart = ({ object }) => {
       ) : (
         <div>
           <Navbar/>
-          <h2>Shopping Cart</h2>
+          <h1 className='title'>Shopping Cart</h1>
 
           {cartList.length > 0 ? (
-            <ul>{cartList}</ul>
+            <div className='shopping-cart-container'>
+              <div className='flight-list'>{cartList}</div>
+              <div className='sum'>TOTAL: {toPay.toFixed(2)}$</div>
+              <button onClick={handleBuy}>Buy now</button>
+            </div>
           ) : (
-            <div></div>
+            <div>Empty cart</div>
           )}
-
-          <div>To pay: {toPay.toFixed(2)}$</div>
-          <button onClick={handleBuy}>Buy now</button>
         </div>
       )}
 

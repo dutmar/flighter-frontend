@@ -33,8 +33,7 @@ const Search = () => {
   localStorage.setItem('cart', JSON.stringify(flightsInCart));
   
   const flightsList = flights.map((flight) => 
-      <div className="flight-list">
-        <li key={flight.id}>
+        <div key={flight.id} className="flight-in-list">
           <div>
           {flight.origin} - {flight.destination}
           </div>
@@ -47,14 +46,21 @@ const Search = () => {
           {isLoggedIn && flight.noOfSeats > 0 ? (
             <button className="buy-button" onClick={() => handleButtonClick(flight)} >Add to cart</button>
           ): (
-            <div></div>
+            <div>
+              {isLoggedIn && flight.noOfSeats === 0 ? (
+                <div className="error-div">
+                  No seats available!
+                </div>
+              ) : (
+                <div></div>
+              )}
+            </div>
           )}
-        </li>
-      </div>
+        </div>
   );
 
   return (
-    <div>
+    <div className="search-body">
       <form onSubmit={handleSubmit}>
           <input
               type="text"
@@ -75,7 +81,7 @@ const Search = () => {
       {isSubmitted ? (
         <div>
           {flightsList.length > 0 ? (
-          <ul>{flightsList}</ul>
+          <div className="flight-list">{flightsList}</div>
         ) : (
           <h1>No flights for that route</h1>
         )}

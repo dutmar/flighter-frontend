@@ -32,7 +32,7 @@ const Register = () => {
   return (
     <div>
       <Navbar/>
-      <h1>Register</h1>
+      <h1 className='title'>Register</h1>
         <form>
           <div className='form-container'>
             <div className='form-group'>

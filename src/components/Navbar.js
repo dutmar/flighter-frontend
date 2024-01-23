@@ -37,7 +37,7 @@ const Navbar = () => {
                 <li className='li-links'>
                     <NavLink to="/about" className='navlink'>About</NavLink>
                 </li>
-                <li>
+                <li className='li-links'>
                     <NavLink to="/contact" className='navlink'>Contact</NavLink>
                 </li>
             </ul>
@@ -45,9 +45,9 @@ const Navbar = () => {
 
         {isLoggedIn ? (
             <div className='links-loggedIn'>
-                <div>{name}</div>
+                <div className='navlink'>{name}</div>
                 <NavLink to="/cart" className='navlink'>
-                    <img src={shoppingCart} alt='Cart' width={40} height={40}></img>
+                    <img src={shoppingCart} alt='Cart' width={30} height={30}></img>
                 </NavLink>
                 <button onClick={handleSubmit}>Logout</button>
             </div>

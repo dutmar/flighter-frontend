@@ -1,0 +1,23 @@
+.flight-list {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.flight-in-list {
+    width: 20vw;
+}
+
+.shopping-cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.sum {
+    font-size: 1.5rem;
+    font-weight: 800;
+}

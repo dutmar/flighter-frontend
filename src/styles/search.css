@@ -1,3 +1,7 @@
+.search-body {
+    margin: 20px;
+}
+
 form {
     display: flex;
     justify-content: center;
@@ -5,19 +9,33 @@ form {
 
 .buy-button {
     display: inline-block;
-    padding: 8px 12px;
-    font-size: 14px;
+    padding: 4px 6px;
+    font-size: 12px;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    border: 2px solid #3498db;
-    color: #3498db;
-    background-color: #fff;
+    border: 2px solid #8ecae6;
+    color: #fb8500;
+    background-color: #023047;
     border-radius: 3px;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 .flight-list {
+    margin: 20px;
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.flight-in-list {
+    padding: 10px;
+    border: 3px solid #023047;
+    border-radius: 10px 20px 10px 20px;
+    width: 20vw;
+}
+
+.error-div {
+    color: #fb8500;
 }
