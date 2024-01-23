@@ -3,6 +3,7 @@ import axios from 'axios';
 import apiClient from '../services/api';
 import Navbar from './Navbar';
 import { useNavigate } from 'react-router-dom';
+import Footer from './Footer';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -32,23 +33,34 @@ const Register = () => {
     <div>
       <Navbar/>
       <h1>Register</h1>
-      <form>
-        <label>Name:</label>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        <form>
+          <div className='form-container'>
+            <div className='form-group'>
+              <label>Name:</label>
+              <input className='form-input' type="text" value={name} onChange={(e) => setName(e.target.value)} />
+            </div>
 
-        <label>Email:</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <div>
+              <label>Email:</label>
+              <input className='form-input' type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            </div>
 
-        <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <div>
+              <label>Password:</label>
+              <input className='form-input' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            </div>
 
-        <label> Confirm password:</label>
-        <input type="password" value={password_confirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
+            <div>
+              <label> Confirm password:</label>
+              <input className='form-input' type="password" value={password_confirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
+            </div>
 
-        <button type="button" onClick={handleRegister}>
-          Register
-        </button>
-      </form>
+              <button type="button" onClick={handleRegister}>
+                Register
+              </button>
+          </div> 
+        </form>
+      <Footer/>
     </div>
   );
 };

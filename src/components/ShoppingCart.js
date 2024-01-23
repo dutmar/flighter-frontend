@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import { useAuth } from './AuthContext';
 import apiClient from '../services/api';
 import { useNavigate } from 'react-router-dom';
+import Footer from './Footer';
 
 const ShoppingCart = ({ object }) => {
   const { isLoggedIn, login, logout } = useAuth();
@@ -64,10 +65,12 @@ const ShoppingCart = ({ object }) => {
             <div></div>
           )}
 
-          <div>To pay: {toPay}$</div>
+          <div>To pay: {toPay.toFixed(2)}$</div>
           <button onClick={handleBuy}>Buy now</button>
         </div>
       )}
+
+      <Footer/>
     </div>
   );
 };

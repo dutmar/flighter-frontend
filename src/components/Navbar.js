@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../img/planeLogo.png';
+import logo from '../img/planeLogo.jpg';
 import shoppingCart from '../img/shopping-cart.png';
 import '../styles/navbar.css';
 import { useAuth } from './AuthContext';
@@ -22,23 +22,23 @@ const Navbar = () => {
     <nav>
         <div>
             <NavLink to='/'>
-                <img src={logo} alt='Logo' width={70} height={64} style={{ borderRadius: '50%' }} ></img>
+                <img src={logo} alt='Logo' width={60} height={60} style={{ borderRadius: '50%' }} ></img>
             </NavLink>
         </div>
 
-        <div className='links'>
-            <ul>
-                <li>
-                    <NavLink to="/">Home</NavLink>
+        <div className='main-links'>
+            <ul className='ul-links'>
+                <li className='li-links'>
+                    <NavLink to="/" className='navlink'>Home</NavLink>
+                </li>
+                <li className='li-links'>
+                    <NavLink to="/flights" className='navlink'>Flights</NavLink>
+                </li>
+                <li className='li-links'>
+                    <NavLink to="/about" className='navlink'>About</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/flights">Flights</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/about">About</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/contact">Contact</NavLink>
+                    <NavLink to="/contact" className='navlink'>Contact</NavLink>
                 </li>
             </ul>
         </div>
@@ -46,20 +46,20 @@ const Navbar = () => {
         {isLoggedIn ? (
             <div className='links-loggedIn'>
                 <div>{name}</div>
-                <NavLink to="/cart">
+                <NavLink to="/cart" className='navlink'>
                     <img src={shoppingCart} alt='Cart' width={40} height={40}></img>
                 </NavLink>
                 <button onClick={handleSubmit}>Logout</button>
             </div>
 
         ) : (
-            <div className='links'>
+        <div className='links'>
             <ul>
-                <li>
-                    <NavLink to="/login">Login</NavLink>
+                <li className='li-links'>
+                    <NavLink to="/login" className='navlink'>Login</NavLink>
                 </li>
-                <li>
-                    <NavLink to="/register">Register</NavLink>
+                <li className='li-links'>
+                    <NavLink to="/register" className='navlink'>Register</NavLink>
                 </li>
             </ul>
         </div>

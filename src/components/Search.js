@@ -1,6 +1,7 @@
 import React from "react";
 import apiClient from "../services/api";
 import { useAuth } from './AuthContext';
+import '../styles/search.css'
 
 const Search = () => {
   const[origin, setOrigin] = React.useState('');
@@ -32,6 +33,7 @@ const Search = () => {
   localStorage.setItem('cart', JSON.stringify(flightsInCart));
   
   const flightsList = flights.map((flight) => 
+      <div className="flight-list">
         <li key={flight.id}>
           <div>
           {flight.origin} - {flight.destination}
@@ -43,11 +45,12 @@ const Search = () => {
             {flight.price}$
           </div>
           {isLoggedIn && flight.noOfSeats > 0 ? (
-            <button onClick={() => handleButtonClick(flight)} >Add to cart</button>
+            <button className="buy-button" onClick={() => handleButtonClick(flight)} >Add to cart</button>
           ): (
-            <div>No available seats</div>
+            <div></div>
           )}
         </li>
+      </div>
   );
 
   return (

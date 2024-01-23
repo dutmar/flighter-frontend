@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import { useAuth } from './AuthContext';
 import ShoppingCart from './ShoppingCart';
 import '../styles/flights.css';
+import Footer from './Footer';
  
 const Flights = () => {
     const [flights, setFlights] = React.useState([]);
@@ -27,7 +28,7 @@ const Flights = () => {
     return (
         <div>
             <Navbar />
-
+            <Footer/>
             <ul className='listFlights'>{flightsList}</ul>
         </div>
     );

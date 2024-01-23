@@ -3,6 +3,7 @@ import apiClient from '../services/api';
 import Navbar from './Navbar';
 import { useAuth } from './AuthContext';
 import { useNavigate } from 'react-router-dom';
+import Footer from './Footer';
  
 const Login = () => {
     const [email, setEmail] = React.useState('');
@@ -57,6 +58,7 @@ const Login = () => {
                     </form>
                 </div>
             )}
+            <Footer/>
         </div>
     );
 }

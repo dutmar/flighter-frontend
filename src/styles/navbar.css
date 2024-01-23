@@ -1,10 +1,44 @@
-nav, ul {
+nav {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    background-color: #d5bdaf;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ul {
     display: flex;
     flex-direction: row;
     gap: 20px;
+    text-decoration: none;
+}
+
+.ul-links {
+    gap: 30px;
+}
+
+li {
+   list-style: none;
+}
+
+.li-links:hover {
+    border-radius: 50%;
+    background-color: #d6ccc2;
+}
+
+.navlink {
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+}
+
+.links {
+    right: 80vw;
 }
 
 .links-loggedIn {
     display: flex;
     gap: 10px;
+    right: 0;
 }

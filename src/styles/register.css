@@ -1,0 +1,16 @@
+.form-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px; /* Adjust the spacing between input fields */
+  }
+  
+  /* Input Styles */
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px; /* Adjust the spacing between input fields */
+    box-sizing: border-box;
+  }
