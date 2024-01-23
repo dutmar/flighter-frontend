@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import apiClient from '../services/api';
 import Navbar from './Navbar';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [password_confirmation, setPasswordConfirmation] = useState('');
+  const nav = useNavigate();
 
   const handleRegister = async () => {
     try {
@@ -17,8 +19,9 @@ const Register = () => {
         password,
         password_confirmation
       });
-
-      console.log(response.data); // Handle success, maybe redirect or show a success message
+      setTimeout(() => {
+        nav('/login');
+      }, 1000);
     } catch (error) {
       console.error('Registration failed:', error.response.data);
       // Handle error, show an error message, etc.
@@ -28,7 +31,7 @@ const Register = () => {
   return (
     <div>
       <Navbar/>
-      <h2>Register</h2>
+      <h1>Register</h1>
       <form>
         <label>Name:</label>
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />

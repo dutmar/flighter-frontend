@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const ShoppingCart = ({ object }) => {
   const { isLoggedIn, login, logout } = useAuth();
   const cart = JSON.parse(localStorage.getItem('cart'));
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const nav = useNavigate();
 
   let toPay = 0;
@@ -29,39 +30,44 @@ const ShoppingCart = ({ object }) => {
   }
 
   const handleBuy = () => {
+    setShowSuccessMessage(true);
     cart.forEach(flight => {
       apiClient.get('api/flights/'+flight.id)
       .then(response => {
-        if(response.data.noOfSeats > 0) {
-          apiClient.put('/api/flights/'+flight.id, null,  {
-            params: {
-              noOfSeats: response.data.noOfSeats-1
-            }
-          })
-          .then(response => {
-            console.log(response.data);
-            console.log("updateano");
+        apiClient.put('/api/flights/'+flight.id, null,  {
+          params: {
+            noOfSeats: response.data.noOfSeats-1
+          }
+        })
+        .then(response => {
+          setTimeout(() => {
             nav('/');
-          })
-          .catch(error => console.error(error));
-        }
+          }, 3000);
+        })
+        .catch(error => console.error(error));
       })
     });
   }
 
   return (
     <div>
-      <Navbar/>
-      <h2>Shopping Cart</h2>
-
-      {cartList.length > 0 ? (
-        <ul>{cartList}</ul>
+      {showSuccessMessage ? (
+        <div>Successfully purchased! Redirecting...</div>
       ) : (
-        <div></div>
-      )}
+        <div>
+          <Navbar/>
+          <h2>Shopping Cart</h2>
 
-      <div>To pay: {toPay}$</div>
-      <button onClick={handleBuy}>Buy now</button>
+          {cartList.length > 0 ? (
+            <ul>{cartList}</ul>
+          ) : (
+            <div></div>
+          )}
+
+          <div>To pay: {toPay}$</div>
+          <button onClick={handleBuy}>Buy now</button>
+        </div>
+      )}
     </div>
   );
 };

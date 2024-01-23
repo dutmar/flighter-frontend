@@ -42,10 +42,10 @@ const Search = () => {
           <div>
             {flight.price}$
           </div>
-          {isLoggedIn ? (
+          {isLoggedIn && flight.noOfSeats > 0 ? (
             <button onClick={() => handleButtonClick(flight)} >Add to cart</button>
           ): (
-            <div></div>
+            <div>No available seats</div>
           )}
         </li>
   );
