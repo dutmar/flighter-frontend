@@ -45,16 +45,24 @@ const Navbar = () => {
 
         {isLoggedIn ? (
             <div className='links-loggedIn'>
-                <div className='navlink'>{name}</div>
-                <NavLink to="/cart" className='navlink'>
-                    <img src={shoppingCart} alt='Cart' width={30} height={30}></img>
-                </NavLink>
-                <button onClick={handleSubmit}>Logout</button>
+                <ul className='ul-links-right'>
+                    <li>
+                        <div className='navlink'>{name}</div>
+                    </li>
+                    <li>
+                        <NavLink to="/cart" className='navlink'>
+                            <img src={shoppingCart} alt='Cart' width={30} height={30}></img>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <button className='buy-button' onClick={handleSubmit}>Logout</button>
+                    </li>
+                </ul>
             </div>
 
         ) : (
         <div className='links'>
-            <ul>
+            <ul className='ul-links'>
                 <li className='li-links'>
                     <NavLink to="/login" className='navlink'>Login</NavLink>
                 </li>

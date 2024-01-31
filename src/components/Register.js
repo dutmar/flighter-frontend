@@ -4,6 +4,7 @@ import apiClient from '../services/api';
 import Navbar from './Navbar';
 import { useNavigate } from 'react-router-dom';
 import Footer from './Footer';
+import '../styles/register.css'
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -35,29 +36,14 @@ const Register = () => {
       <h1 className='title'>Register</h1>
         <form>
           <div className='form-container'>
-            <div className='form-group'>
-              <label>Name:</label>
-              <input className='form-input' type="text" value={name} onChange={(e) => setName(e.target.value)} />
-            </div>
+            <input className='form-input' type="text" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} />
+            <input className='form-input' type="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input className='form-input' type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+            <input className='form-input' type="password" placeholder='Confirm password' value={password_confirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
 
-            <div>
-              <label>Email:</label>
-              <input className='form-input' type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            </div>
-
-            <div>
-              <label>Password:</label>
-              <input className='form-input' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            </div>
-
-            <div>
-              <label> Confirm password:</label>
-              <input className='form-input' type="password" value={password_confirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
-            </div>
-
-              <button type="button" onClick={handleRegister}>
-                Register
-              </button>
+            <button className='buy-button press' type="button" onClick={handleRegister}>
+              Register
+            </button>
           </div> 
         </form>
       <Footer/>

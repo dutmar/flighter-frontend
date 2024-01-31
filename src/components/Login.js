@@ -39,23 +39,27 @@ const Login = () => {
                     <Navbar/>
                     <h1 className='title'>Login</h1>
                     <form onSubmit={handleSubmit}>
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Email"
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
-                            required
-                        />
-                        <input
-                            type="password"
-                            name="password"
-                            placeholder="Password"
-                            value={password}
-                            onChange={e => setPassword(e.target.value)}
-                            required
-                        />
-                        <button type="submit">Login</button>
+                        <div className='form-container'>
+                            <input
+                                className='form-input'
+                                type="email"
+                                name="email"
+                                placeholder="Email"
+                                value={email}
+                                onChange={e => setEmail(e.target.value)}
+                                required
+                            />
+                            <input
+                                className='form-input'
+                                type="password"
+                                name="password"
+                                placeholder="Password"
+                                value={password}
+                                onChange={e => setPassword(e.target.value)}
+                                required
+                            />
+                            <button className='buy-button press' type="submit">Login</button>
+                        </div>
                     </form>
                 </div>
             )}

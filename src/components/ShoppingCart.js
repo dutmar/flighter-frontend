@@ -52,7 +52,7 @@ const ShoppingCart = ({ object }) => {
   return (
     <div>
       {showSuccessMessage ? (
-        <div>Successfully purchased! Redirecting...</div>
+        <div className='purchased'>Successfully purchased! Redirecting...</div>
       ) : (
         <div>
           <Navbar/>
@@ -62,10 +62,10 @@ const ShoppingCart = ({ object }) => {
             <div className='shopping-cart-container'>
               <div className='flight-list'>{cartList}</div>
               <div className='sum'>TOTAL: {toPay.toFixed(2)}$</div>
-              <button onClick={handleBuy}>Buy now</button>
+              <button className='buy-button press-buy' onClick={handleBuy}>Buy now</button>
             </div>
           ) : (
-            <div>Empty cart</div>
+            <div className='empty'>Empty cart</div>
           )}
         </div>
       )}

@@ -1,16 +1,22 @@
 .form-container {
     display: flex;
-    gap: 20px;
-  }
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
   
-  .form-group {
-    margin-bottom: 20px; /* Adjust the spacing between input fields */
-  }
-  
-  /* Input Styles */
-  .form-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px; /* Adjust the spacing between input fields */
-    box-sizing: border-box;
-  }
+.form-group {
+  margin-bottom: 20px; /* Adjust the spacing between input fields */
+}
+
+/* Input Styles */
+.form-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px; /* Adjust the spacing between input fields */
+  box-sizing: border-box;
+}
+
+.press {
+  height: 4vh;
+}

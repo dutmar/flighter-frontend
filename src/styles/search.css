@@ -36,6 +36,16 @@ form {
     width: 20vw;
 }
 
+.flight-route {
+    font-weight: 800;
+}
+
 .error-div {
     color: #fb8500;
+}
+
+.press-search {
+    height: 4vh;
+    width: 8vw;
+    font-size: 1rem;
 }

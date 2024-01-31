@@ -19,7 +19,7 @@ const Flights = () => {
         .catch(error => console.error(error));
     }, []);
     const flightsList = flights.map((flight) =>
-        <div>
+        <div className='flight-in-list'>
             <li key={flight.id}>{flight.airline}</li>
         </div>
 
@@ -29,7 +29,7 @@ const Flights = () => {
         <div>
             <Navbar />
             <Footer/>
-            <ul className='listFlights'>{flightsList}</ul>
+            <div className='flight-list'>{flightsList}</div>
         </div>
     );
     

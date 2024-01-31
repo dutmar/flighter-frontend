@@ -34,7 +34,7 @@ const Search = () => {
   
   const flightsList = flights.map((flight) => 
         <div key={flight.id} className="flight-in-list">
-          <div>
+          <div className="flight-route">
           {flight.origin} - {flight.destination}
           </div>
           <div>
@@ -75,7 +75,7 @@ const Search = () => {
               value={destination}
               onChange={e => setDestination(e.target.value)}
           />
-        <button type="submit">Fly</button>
+        <button className="buy-button press-search" type="submit">Fly</button>
       </form>
 
       {isSubmitted ? (

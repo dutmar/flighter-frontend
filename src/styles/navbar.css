@@ -18,6 +18,10 @@ ul {
     gap: 30px;
 }
 
+.ul-links-right {
+    gap: 10px;
+}
+
 li {
    list-style: none;
 }
@@ -41,4 +45,8 @@ li {
     display: flex;
     gap: 10px;
     right: 0;
+}
+
+button:hover {
+    background-color: #8ecae6;
 }
