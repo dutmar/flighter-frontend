@@ -24,7 +24,7 @@ const Flights = () => {
         </div>
 
     );
-    //PROBA ZA LOGIN STATE, TREBA PROMJENITI!!!!!
+
     return (
         <div>
             <Navbar />

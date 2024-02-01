@@ -26,6 +26,7 @@ const Login = () => {
                         localStorage.setItem("profile", JSON.stringify(response.data.user.name));
                         nav("/");
                     }
+                }).catch((error) => {
                 })
             });
     }

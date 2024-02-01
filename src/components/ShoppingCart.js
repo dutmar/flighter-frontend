@@ -21,7 +21,7 @@ const ShoppingCart = ({ object }) => {
   if(cart) {
     var cartList = cart.map((flight) =>
       <div className='flight-in-list' key={flight.id}>
-        <div>
+        <div className='flight-route'>
         {flight.origin}-{flight.destination}
         </div>
         <div>{flight.price}$</div>
@@ -52,7 +52,10 @@ const ShoppingCart = ({ object }) => {
   return (
     <div>
       {showSuccessMessage ? (
-        <div className='purchased'>Successfully purchased! Redirecting...</div>
+        <div>
+          <Navbar/>
+          <div className='purchased'>Successfully purchased! Redirecting...</div>
+        </div>
       ) : (
         <div>
           <Navbar/>
