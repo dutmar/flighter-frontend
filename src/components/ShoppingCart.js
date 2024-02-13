@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import { useAuth } from './AuthContext';
 import apiClient from '../services/api';
@@ -6,20 +6,21 @@ import { useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 import '../styles/shoppingCart.css'
 
-const ShoppingCart = ({ object }) => {
+const ShoppingCart = () => {
   const { isLoggedIn, login, logout } = useAuth();
   const cart = JSON.parse(localStorage.getItem('cart'));
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const nav = useNavigate();
 
   let toPay = 0;
+  var cartList
 
   cart.forEach(flight => {
     toPay += parseFloat(flight.price);
   });
 
   if(cart) {
-    var cartList = cart.map((flight) =>
+    cartList = cart.map((flight) =>
       <div className='flight-in-list' key={flight.id}>
         <div className='flight-route'>
         {flight.origin}-{flight.destination}
@@ -28,6 +29,12 @@ const ShoppingCart = ({ object }) => {
       </div>
     );
   }
+
+  useEffect(() => {
+    if(JSON.parse(localStorage.getItem('cart'))) {
+      console.log("use effect")
+    }
+  }, [])
 
   const handleBuy = () => {
     setShowSuccessMessage(true);

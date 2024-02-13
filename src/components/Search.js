@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import apiClient from "../services/api";
 import { useAuth } from './AuthContext';
 import '../styles/search.css'
@@ -10,6 +10,7 @@ const Search = () => {
   const [isSubmitted, setSubmitted] = React.useState(false);
   const { isLoggedIn, login, logout } = useAuth();
   const [flightsInCart, setFlightsInCart] = React.useState([]);
+  const [itemNum, setItemNum] = React.useState(0);
 
   const handleSubmit = (e) => {
     setSubmitted(true);
@@ -30,7 +31,14 @@ const Search = () => {
     setFlightsInCart(current => [...current, flightInCart]);
   }
 
+  useEffect(() => {
+    if(JSON.parse(localStorage.getItem('cart'))) {
+      localStorage.setItem('cart', JSON.stringify(flightsInCart));
+    }
+  })
+
   localStorage.setItem('cart', JSON.stringify(flightsInCart));
+
   
   const flightsList = flights.map((flight) => 
         <div key={flight.id} className="flight-in-list">

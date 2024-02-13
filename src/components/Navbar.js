@@ -18,6 +18,12 @@ const Navbar = () => {
         logout();
     }
 
+    useEffect(() => {
+        if(JSON.parse(localStorage.getItem('profile'))) {
+            login();
+        }
+    }, [])
+
   return (
     <nav>
         <div>
