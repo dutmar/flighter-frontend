@@ -5,15 +5,17 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const token = JSON.parse(localStorage.getItem('token'));
 
   const login = () => {
     setIsLoggedIn(true);
   };
 
   const logout = () => {
-    apiClient.post('api/logout', {
-      'Authorization': 'Bearer ' + token
+
+    apiClient.post('api/logout', {}, {
+      headers: {
+        Authorization: localStorage.getItem('token')
+      }
     }).then(response => {
       console.log(response);
     })

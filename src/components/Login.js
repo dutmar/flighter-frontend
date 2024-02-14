@@ -24,7 +24,7 @@ const Login = () => {
                     if(response.status === 201) {
                         login();
                         localStorage.setItem("profile", JSON.stringify(response.data.user.name));
-                        localStorage.setItem("token", JSON.stringify(response.data.token));
+                        localStorage.setItem("token", ("Bearer " + response.data.token));
                         nav("/");
                     }
                 }).catch((error) => {
