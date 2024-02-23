@@ -11,6 +11,15 @@ const Search = () => {
   const { isLoggedIn, login, logout } = useAuth();
   const [flightsInCart, setFlightsInCart] = React.useState([]);
 
+  useEffect(() => {
+    const stored = JSON.parse(localStorage.getItem('cart'));
+    console.log(stored);
+
+    if(stored.length > 0) {
+      setFlightsInCart(stored);
+    }
+  }, [])
+
   const handleSubmit = (e) => {
     setSubmitted(true);
     e.preventDefault();
@@ -28,10 +37,10 @@ const Search = () => {
 
   const handleButtonClick = (flightInCart) => {
     setFlightsInCart(current => [...current, flightInCart]);
-    localStorage.setItem('cart', JSON.stringify(flightsInCart));
+    //localStorage.setItem('cart', JSON.stringify(flightsInCart));
   }
 
-  //localStorage.setItem('cart', JSON.stringify(flightsInCart));
+  localStorage.setItem('cart', JSON.stringify(flightsInCart));
 
   
   const flightsList = flights.map((flight) => 

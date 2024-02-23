@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../img/planeLogo.jpg';
 import shoppingCart from '../img/shopping-cart.png';
@@ -9,6 +9,7 @@ import apiClient from '../services/api';
 const Navbar = () => {
     const { isLoggedIn, login, logout } = useAuth();
     const [name, setName] = React.useState(JSON.parse(localStorage.getItem("profile")));
+    let cartSize;
 
     const getName = (name) => {
         setName(name);
@@ -22,7 +23,10 @@ const Navbar = () => {
         if(JSON.parse(localStorage.getItem('profile'))) {
             login();
         }
-    }, [])
+
+        cartSize = (JSON.parse(localStorage.getItem('cart')).length);
+        //console.log(cartSize);
+    })
 
   return (
     <nav>

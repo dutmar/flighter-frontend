@@ -30,12 +30,6 @@ const ShoppingCart = () => {
     );
   }
 
-  useEffect(() => {
-    if(JSON.parse(localStorage.getItem('cart'))) {
-      console.log("use effect")
-    }
-  }, [])
-
   const handleBuy = () => {
     setShowSuccessMessage(true);
     cart.forEach(flight => {
@@ -47,8 +41,14 @@ const ShoppingCart = () => {
           }
         })
         .then(response => {
+          apiClient.post('api/tickets', {
+            email: JSON.parse(localStorage.getItem('email')),
+            origin: flight.origin,
+            destination: flight.destination
+          })
           setTimeout(() => {
             nav('/');
+            localStorage.removeItem('cart');
           }, 3000);
         })
         .catch(error => console.error(error));
