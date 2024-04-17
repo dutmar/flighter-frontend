@@ -1,9 +1,9 @@
-# Final theseis project
+# Final theseis project - web developement
 
-# Task
+## Task
 Create RESTful web application for buying airline tickets
 
-# Technologies
+## Technologies
 React
 Laravel
 MySQL
