@@ -37,7 +37,6 @@ const Search = () => {
 
   const handleButtonClick = (flightInCart) => {
     setFlightsInCart(current => [...current, flightInCart]);
-    //localStorage.setItem('cart', JSON.stringify(flightsInCart));
   }
 
   localStorage.setItem('cart', JSON.stringify(flightsInCart));

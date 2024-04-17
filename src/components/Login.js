@@ -26,6 +26,7 @@ const Login = () => {
                         localStorage.setItem("profile", JSON.stringify(response.data.user.name));
                         localStorage.setItem("email", JSON.stringify(response.data.user.email));
                         localStorage.setItem("token", ("Bearer " + response.data.token));
+                        localStorage.setItem("admin", JSON.stringify(response.data.user.admin_privilege));
                         nav("/");
                     }
                 }).catch((error) => {

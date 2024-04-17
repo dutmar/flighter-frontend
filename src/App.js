@@ -7,6 +7,9 @@ import HomePage from './components/HomePage';
 import About from './components/About';
 import Contact from './components/Contact';
 import ShoppingCart from './components/ShoppingCart';
+import AddFlight from './components/AddFlight';
+import DeleteFlight from './components/DeleteFlight';
+import UpdateFlight from './components/UpdateFlight';
 
 function App() {
 
@@ -26,6 +29,9 @@ function App() {
           <Route path='/flights' Component={Flights} />
           <Route path='/login' Component={Login} />
           <Route path='/register' Component={Register} />
+          <Route path='/add' Component={AddFlight} />
+          <Route path='/update' Component={UpdateFlight} />
+          <Route path='/delete' Component={DeleteFlight} />
       </Routes>
     </Router>
   );
