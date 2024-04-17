@@ -1,4 +1,13 @@
-##localhost:3000
+# Final theseis project
 
-To start the server run
+# Task
+Create RESTful web application for buying airline tickets
+
+# Technologies
+React
+Laravel
+MySQL
+
+
+To start the server run:
     npm start
