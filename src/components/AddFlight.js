@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import '../styles/addFlight.css'
 import Navbar from "./Navbar";
 import apiClient from "../services/api";
+import { useNavigate } from 'react-router-dom';
 
 const AddFlight = () => {
     const [origin, setOrigin] = useState('');
@@ -9,6 +10,7 @@ const AddFlight = () => {
     const [airline, setAirline] = useState('');
     const [price, setPrice] = useState('');
     const [seats, setSeats] = useState('');
+    const nav = useNavigate();
 
     const handleAdd = async () => {
         try {
@@ -19,6 +21,7 @@ const AddFlight = () => {
                 price: price,
                 noOfSeats: seats
             });
+            nav('/');
         } catch (error) {
             console.error('Failed', error.response.data);
         }
