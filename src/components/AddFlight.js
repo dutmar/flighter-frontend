@@ -28,12 +28,12 @@ const AddFlight = () => {
         <div>
             <Navbar/>
             <div className="addFlight-box">
-            <input placeholder="origin" value={origin} onChange={(e) => setOrigin(e.target.value)}></input>
-            <input placeholder="destination" value={destination} onChange={(e) => setDestination(e.target.value)}></input>
-            <input placeholder="airline" value={airline} onChange={(e) => setAirline(e.target.value)}></input>
-            <input placeholder="price" value={price} onChange={(e) => setPrice(e.target.value)}></input>
-            <input placeholder="number of seats" value={seats} onChange={(e) => setSeats(e.target.value)}></input>
-            <button onClick={handleAdd}>Add</button>
+                <input placeholder="origin" value={origin} onChange={(e) => setOrigin(e.target.value)}></input>
+                <input placeholder="destination" value={destination} onChange={(e) => setDestination(e.target.value)}></input>
+                <input placeholder="airline" value={airline} onChange={(e) => setAirline(e.target.value)}></input>
+                <input placeholder="price" value={price} onChange={(e) => setPrice(e.target.value)}></input>
+                <input placeholder="number of seats" value={seats} onChange={(e) => setSeats(e.target.value)}></input>
+                <button onClick={handleAdd}>Add</button>
             </div>
         </div>
         
