@@ -1,0 +1,15 @@
+.table-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+table {
+    font-size: 1.25rem;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid black;
+}

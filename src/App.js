@@ -10,6 +10,7 @@ import ShoppingCart from './components/ShoppingCart';
 import AddFlight from './components/AddFlight';
 import DeleteFlight from './components/DeleteFlight';
 import UpdateFlight from './components/UpdateFlight';
+import Tickets from './components/Tickets';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
           <Route path='/add' Component={AddFlight} />
           <Route path='/update' Component={UpdateFlight} />
           <Route path='/delete' Component={DeleteFlight} />
+          <Route path='/tickets' Component={Tickets} />
       </Routes>
     </Router>
   );
