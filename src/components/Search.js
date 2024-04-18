@@ -45,7 +45,7 @@ const Search = () => {
   const flightsList = flights.map((flight) => 
         <div key={flight.id} className="flight-in-list">
           <div className="flight-route">
-          {flight.origin} - {flight.destination}
+            {flight.origin} - {flight.destination}
           </div>
           <div>
             {flight.airline}

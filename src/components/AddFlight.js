@@ -19,7 +19,6 @@ const AddFlight = () => {
                 price: price,
                 noOfSeats: seats
             });
-            console.log(response)
         } catch (error) {
             console.error('Failed', error.response.data);
         }
