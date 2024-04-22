@@ -9,7 +9,7 @@ import apiClient from '../services/api';
 const Navbar = () => {
     const { isLoggedIn, login, logout } = useAuth();
     const [name, setName] = React.useState(JSON.parse(localStorage.getItem("profile")));
-    let cartSize;
+    const [admin, setAdmin] = React.useState(JSON.parse(localStorage.getItem("admin")));
 
     const getName = (name) => {
         setName(name);
@@ -23,9 +23,6 @@ const Navbar = () => {
         if(JSON.parse(localStorage.getItem('profile'))) {
             login();
         }
-
-        cartSize = (JSON.parse(localStorage.getItem('cart')).length);
-        //console.log(cartSize);
     })
 
   return (
@@ -60,10 +57,10 @@ const Navbar = () => {
                         <div className='navlink'>{name}</div>
                     </li>
                     <li>
-                        <NavLink to="/cart" className='navlink'>
-                            <img src={shoppingCart} alt='Cart' width={30} height={30}></img>
-                        </NavLink>
-                    </li>
+                         <NavLink to="/cart" className='navlink'>
+                             <img src={shoppingCart} alt='Cart' width={30} height={30}></img>
+                         </NavLink>
+                        </li>
                     <li>
                         <button className='buy-button' onClick={handleSubmit}>Logout</button>
                     </li>

@@ -6,9 +6,11 @@ import AddFlight from "./AddFlight";
 import '../styles/homePage.css'
 import { useNavigate } from 'react-router-dom';
 import planeBody from '../img/planeBody.jpg'
+import { useAuth } from './AuthContext';
 
 const HomePage = () => {
     const [admin, setAdmin] = React.useState(JSON.parse(localStorage.getItem("admin")));
+    const { isLoggedIn, login, logout } = useAuth();
     const nav = useNavigate();
 
     const handleAdd = () => {
@@ -32,7 +34,7 @@ const HomePage = () => {
             <Navbar/>
             <Footer/>
 
-            {admin == 'true' ? (
+            {admin == 'true' && isLoggedIn ? (
                 <div>
                     <button onClick={handleAdd}>Add flights</button>
                     <button onClick={handleUpdate}>Update flights</button>

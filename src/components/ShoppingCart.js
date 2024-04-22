@@ -5,6 +5,7 @@ import apiClient from '../services/api';
 import { useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 import '../styles/shoppingCart.css'
+import Checkout from './Checkout';
 
 const ShoppingCart = () => {
   const { isLoggedIn, login, logout } = useAuth();
@@ -56,6 +57,14 @@ const ShoppingCart = () => {
     });
   }
 
+  const handleCheckout = (amount) => {
+    //nav('/checkout');
+    console.log('jeej')
+    return (
+      <Checkout amount={amount}/>
+    );
+  }
+
   return (
     <div>
       {showSuccessMessage ? (
@@ -72,7 +81,8 @@ const ShoppingCart = () => {
             <div className='shopping-cart-container'>
               <div className='flight-list'>{cartList}</div>
               <div className='sum'>TOTAL: {toPay.toFixed(2)}$</div>
-              <button className='buy-button press-buy' onClick={handleBuy}>Buy now</button>
+              {/* <button className='buy-button press-buy' onClick={handleBuy}>Buy now</button> */}
+              <button className='buy-button press-buy' onClick={() => handleCheckout(toPay)}>Checkout</button>
             </div>
           ) : (
             <div className='empty'>Empty cart</div>

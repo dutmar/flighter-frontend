@@ -17,7 +17,6 @@ export const AuthProvider = ({ children }) => {
         Authorization: localStorage.getItem('token')
       }
     }).then(response => {
-      console.log(response);
     })
     .catch(error => console.error(error))
 

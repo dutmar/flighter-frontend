@@ -13,7 +13,6 @@ const Search = () => {
 
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem('cart'));
-    console.log(stored);
 
     if(stored.length > 0) {
       setFlightsInCart(stored);
