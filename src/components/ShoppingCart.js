@@ -11,6 +11,7 @@ const ShoppingCart = () => {
   const { isLoggedIn, login, logout } = useAuth();
   const cart = JSON.parse(localStorage.getItem('cart'));
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showCheckout, setShowCheckout] = useState(false);
   const nav = useNavigate();
 
   let toPay = 0;
@@ -57,12 +58,8 @@ const ShoppingCart = () => {
     });
   }
 
-  const handleCheckout = (amount) => {
-    //nav('/checkout');
-    console.log('jeej')
-    return (
-      <Checkout amount={amount}/>
-    );
+  const handleCheckout = () => {
+    setShowCheckout(true);
   }
 
   return (
@@ -78,11 +75,16 @@ const ShoppingCart = () => {
           <h1 className='title'>Shopping Cart</h1>
 
           {cartList.length > 0 ? (
-            <div className='shopping-cart-container'>
-              <div className='flight-list'>{cartList}</div>
-              <div className='sum'>TOTAL: {toPay.toFixed(2)}$</div>
-              {/* <button className='buy-button press-buy' onClick={handleBuy}>Buy now</button> */}
-              <button className='buy-button press-buy' onClick={() => handleCheckout(toPay)}>Checkout</button>
+            <div className='checkout-container'>
+              <div className='shopping-cart-container'>
+                <div className='flight-list'>{cartList}</div>
+                <div className='sum'>TOTAL: {toPay.toFixed(2)}$</div>
+                {/* <button className='buy-button press-buy' onClick={handleBuy}>Buy now</button> */}
+                <button className='buy-button press-buy' onClick={handleCheckout}>Checkout</button>
+              </div>
+              <div>
+                {showCheckout && <Checkout amount={toPay}/>}
+              </div>
             </div>
           ) : (
             <div className='empty'>Empty cart</div>

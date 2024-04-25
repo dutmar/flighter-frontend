@@ -23,6 +23,11 @@
     gap: 20px;
 }
 
+.checkout-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .sum {
     color: black;
     font-size: 1.5rem;
