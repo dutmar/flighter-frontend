@@ -7,7 +7,7 @@ import CheckoutForm from "./CheckoutForm";
 const stripePromise = loadStripe('pk_test_51P6x9BICSrlzlIyR8GN51tcx9WbXsJIIW2oc0NizdAiQ29vQv0oviHCCoez09dk76LroIpEzxxVyM4kb2y8Pyx6Y00Ms6m5ivy');
 
 const Checkout = (props) => {
-    const [clientSecret, setClientSecret] = React.useState('');
+    const [clientSecret, setClientSecret] = React.useState();
 
     useEffect(() => {
         const fetchData = (async () => {
@@ -16,19 +16,28 @@ const Checkout = (props) => {
             });
             //const {client_secret: clientSecret} = await response.json();
             // Render the form using the clientSecret
-            console.log(response.data);
-            setClientSecret(response.data.client_secret);
-        })();
+            setClientSecret(response.data);
+        });
+
+        fetchData();
     }, []);
+
+    console.log(clientSecret);
       
     const options = {
         clientSecret: clientSecret,
     };
 
     return (
-        <Elements stripe={stripePromise} options={options}>
-            <CheckoutForm />
-        </Elements>
+        <div>
+            {clientSecret ? (
+                <Elements stripe={stripePromise} options={options}>
+                    <CheckoutForm />
+                </Elements>
+            ) : (
+                <div></div>
+            )}
+        </div>
     );
 }
 
