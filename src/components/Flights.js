@@ -10,6 +10,7 @@ import Footer from './Footer';
 const Flights = () => {
     const [flights, setFlights] = React.useState([]);
     // const { isLoggedIn, login, logout } = useAuth();
+    const uniqueValues = new Set();
 
     React.useEffect(() => {
         apiClient.get('api/flights')
@@ -18,11 +19,24 @@ const Flights = () => {
         })
         .catch(error => console.error(error));
     }, []);
-    const flightsList = flights.map((flight) =>
-        <div className='flight-in-list'>
-            <li key={flight.id}>{flight.airline}</li>
-        </div>
+    // const flightsList = flights.map((flight) =>
+    //     <div className='flight-in-list'>
+    //         <li key={flight.id}>{flight.airline}</li>
+    //     </div>
+    // );
 
+    const values = flights.map((flight) => {
+        if(!uniqueValues.has(flight.airline)) {
+            uniqueValues.add(flight.airline);
+        }
+    })
+
+    const airlines  = [...uniqueValues];
+
+    const flightsList = airlines.map((airline) =>
+        <div className='flight-in-list'>
+            <li>{airline}</li>
+        </div>
     );
 
     return (

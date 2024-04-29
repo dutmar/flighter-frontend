@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import apiClient from '../services/api';
 import Navbar from './Navbar';
 import { useAuth } from './AuthContext';
@@ -11,6 +11,7 @@ const Login = () => {
     const [password, setPassword] = React.useState('');
     //const [isLoggedIn, setIsLoggedIn] = React.useState(false);
     const { isLoggedIn, login, logout } = useAuth();
+    const [errorMessage, setErrorMessage] = useState();
     const nav = useNavigate();
 
     const handleSubmit = (e) => {
@@ -30,6 +31,7 @@ const Login = () => {
                         nav("/");
                     }
                 }).catch((error) => {
+                    setErrorMessage('Invalid username or password');
                 })
             });
     }
@@ -44,6 +46,7 @@ const Login = () => {
                     <h1 className='title'>Login</h1>
                     <form onSubmit={handleSubmit}>
                         <div className='form-container'>
+                            {errorMessage && <div>{errorMessage}</div>}
                             <input
                                 className='form-input'
                                 type="email"

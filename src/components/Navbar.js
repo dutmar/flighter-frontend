@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../img/planeLogo.jpg';
 import shoppingCart from '../img/shopping-cart.png';
@@ -11,7 +11,7 @@ const Navbar = () => {
     const { isLoggedIn, login, logout } = useAuth();
     const [name, setName] = React.useState(JSON.parse(localStorage.getItem("profile")));
     const [admin, setAdmin] = React.useState(JSON.parse(localStorage.getItem("admin")));
-    const [items, setItems] = React.useState(JSON.parse(localStorage.getItem("item")));
+    const [items, setItems] = React.useState(JSON.parse(localStorage.getItem("cart")).length);
     const nav = useNavigate();
 
     const getName = (name) => {
@@ -27,7 +27,7 @@ const Navbar = () => {
         if(JSON.parse(localStorage.getItem('profile'))) {
             login();
         }
-    })
+    });
 
   return (
     <nav>
@@ -62,7 +62,8 @@ const Navbar = () => {
                     </li>
                     <li>
                          <NavLink to="/cart" className='navlink'>
-                             <img src={shoppingCart} alt='Cart' width={30} height={30}></img>
+                            {items}
+                            <img src={shoppingCart} alt='Cart' width={30} height={30}></img>
                          </NavLink>
                     </li>
                     <li>
