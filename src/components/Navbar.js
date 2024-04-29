@@ -5,11 +5,14 @@ import shoppingCart from '../img/shopping-cart.png';
 import '../styles/navbar.css';
 import { useAuth } from './AuthContext';
 import apiClient from '../services/api';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const { isLoggedIn, login, logout } = useAuth();
     const [name, setName] = React.useState(JSON.parse(localStorage.getItem("profile")));
     const [admin, setAdmin] = React.useState(JSON.parse(localStorage.getItem("admin")));
+    const [items, setItems] = React.useState(JSON.parse(localStorage.getItem("item")));
+    const nav = useNavigate();
 
     const getName = (name) => {
         setName(name);
@@ -17,6 +20,7 @@ const Navbar = () => {
 
     const handleSubmit = () => {
         logout();
+        nav('/');
     }
 
     useEffect(() => {
@@ -60,7 +64,7 @@ const Navbar = () => {
                          <NavLink to="/cart" className='navlink'>
                              <img src={shoppingCart} alt='Cart' width={30} height={30}></img>
                          </NavLink>
-                        </li>
+                    </li>
                     <li>
                         <button className='buy-button' onClick={handleSubmit}>Logout</button>
                     </li>

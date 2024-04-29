@@ -1,9 +1,13 @@
 import React, {useState} from 'react';
 import {useStripe, useElements, PaymentElement} from '@stripe/react-stripe-js';
+import '../styles/checkout.css';
+import apiClient from '../services/api';
+import { useNavigate } from 'react-router-dom';
 
-const CheckoutForm = () => {
+const CheckoutForm = (props) => {
   const stripe = useStripe();
   const elements = useElements();
+  const nav = useNavigate();
 
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -24,8 +28,8 @@ const CheckoutForm = () => {
       confirmParams: {
         return_url: 'http://localhost:3000/',
       },
+      redirect: "if_required",
     });
-
 
     if (error) {
       // This point will only be reached if there is an immediate error when
@@ -36,13 +40,41 @@ const CheckoutForm = () => {
       // Your customer will be redirected to your `return_url`. For some payment
       // methods like iDEAL, your customer will be redirected to an intermediate
       // site first to authorize the payment, then redirected to the `return_url`.
+      //console.log(props.cart);
+      handleBuy();
+      nav('/');
     }
   };
 
+  const handleBuy = () => {
+    //setShowSuccessMessage(true);
+    props.cart.forEach(flight => {
+      apiClient.get('api/flights/'+flight.id)
+      .then(response => {
+        apiClient.put('/api/flights/'+flight.id, null,  {
+          params: {
+            noOfSeats: response.data.noOfSeats-1
+          }
+        })
+        .then(response => {
+          apiClient.post('api/tickets', {
+            email: JSON.parse(localStorage.getItem('email')),
+            origin: flight.origin,
+            destination: flight.destination
+          })
+          .then(response => {
+            localStorage.removeItem('cart');
+          })
+        })
+        .catch(error => console.error(error));
+      })
+    });
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='card-form' onSubmit={handleSubmit}>
       <PaymentElement />
-      <button disabled={!stripe}>Submit</button>
+      <button className='buy-button' disabled={!stripe}>Submit</button>
       {/* Show error message to your customers */}
       {errorMessage && <div>{errorMessage}</div>}
     </form>

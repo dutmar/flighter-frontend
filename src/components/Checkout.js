@@ -21,8 +21,6 @@ const Checkout = (props) => {
 
         fetchData();
     }, []);
-
-    console.log(clientSecret);
       
     const options = {
         clientSecret: clientSecret,
@@ -32,7 +30,7 @@ const Checkout = (props) => {
         <div>
             {clientSecret ? (
                 <Elements stripe={stripePromise} options={options}>
-                    <CheckoutForm />
+                    <CheckoutForm cart={props.cart} />
                 </Elements>
             ) : (
                 <div></div>

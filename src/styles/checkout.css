@@ -1,0 +1,6 @@
+.card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-right: 20vw;
+}
