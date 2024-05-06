@@ -12,6 +12,7 @@ import DeleteFlight from './components/DeleteFlight';
 import UpdateFlight from './components/UpdateFlight';
 import Tickets from './components/Tickets';
 import Checkout from './components/Checkout';
+import Users from './components/Users';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
           <Route path='/delete' Component={DeleteFlight} />
           <Route path='/tickets' Component={Tickets} />
           <Route path='/checkout' Component={Checkout} />
+          <Route path='/users' Component={Users} />
       </Routes>
     </Router>
   );

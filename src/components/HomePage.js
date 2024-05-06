@@ -29,6 +29,10 @@ const HomePage = () => {
         nav("/tickets");
     }
 
+    const handleUsers = () => {
+        nav("/users");
+    }
+
     return (
         <div>
             <Navbar/>
@@ -40,6 +44,7 @@ const HomePage = () => {
                     <button onClick={handleUpdate}>Update flights</button>
                     <button onClick={handleDelete}>Delete flights</button>
                     <button onClick={handleTickets}>Tickets</button>
+                    <button onClick={handleUsers}>Users</button>
                 </div>
             ) : (
                 <div>
