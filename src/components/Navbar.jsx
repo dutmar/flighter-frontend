@@ -11,7 +11,7 @@ const Navbar = () => {
     const { isLoggedIn, login, logout } = useAuth();
     const [name, setName] = React.useState(JSON.parse(localStorage.getItem("profile")));
     const [admin, setAdmin] = React.useState(JSON.parse(localStorage.getItem("admin")));
-    const [items, setItems] = React.useState(JSON.parse(localStorage.getItem("cart")).length);
+    const [items, setItems] = useState([]);
     const nav = useNavigate();
 
     const getName = (name) => {
@@ -27,6 +27,10 @@ const Navbar = () => {
         if(JSON.parse(localStorage.getItem('profile'))) {
             login();
         }
+    });
+
+    useEffect(() => {
+        setItems(JSON.parse(localStorage.getItem("cart")));
     });
 
   return (
@@ -61,10 +65,12 @@ const Navbar = () => {
                         <div className='navlink'>{name}</div>
                     </li>
                     <li>
-                         <NavLink to="/cart" className='navlink'>
-                            {items}
-                            <img src={shoppingCart} alt='Cart' width={30} height={30}></img>
-                         </NavLink>
+                        {admin != 'true' && (
+                            <NavLink to="/cart" className='navlink'>
+                                <img src={shoppingCart} alt='Cart' width={30} height={30}></img>
+                                {items.length}
+                            </NavLink>
+                        )}
                     </li>
                     <li>
                         <button className='buy-button' onClick={handleSubmit}>Logout</button>

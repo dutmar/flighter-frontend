@@ -32,31 +32,31 @@ const ShoppingCart = () => {
     );
   }
 
-  const handleBuy = () => {
-    setShowSuccessMessage(true);
-    cart.forEach(flight => {
-      apiClient.get('api/flights/'+flight.id)
-      .then(response => {
-        apiClient.put('/api/flights/'+flight.id, null,  {
-          params: {
-            noOfSeats: response.data.noOfSeats-1
-          }
-        })
-        .then(response => {
-          apiClient.post('api/tickets', {
-            email: JSON.parse(localStorage.getItem('email')),
-            origin: flight.origin,
-            destination: flight.destination
-          })
-          setTimeout(() => {
-            nav('/');
-            localStorage.removeItem('cart');
-          }, 3000);
-        })
-        .catch(error => console.error(error));
-      })
-    });
-  }
+  // const handleBuy = () => {
+  //   setShowSuccessMessage(true);
+  //   cart.forEach(flight => {
+  //     apiClient.get('api/flights/'+flight.id)
+  //     .then(response => {
+  //       apiClient.put('/api/flights/'+flight.id, null,  {
+  //         params: {
+  //           noOfSeats: response.data.noOfSeats-1
+  //         }
+  //       })
+  //       .then(response => {
+  //         apiClient.post('api/tickets', {
+  //           email: JSON.parse(localStorage.getItem('email')),
+  //           origin: flight.origin,
+  //           destination: flight.destination
+  //         })
+  //         setTimeout(() => {
+  //           nav('/');
+  //           localStorage.removeItem('cart');
+  //         }, 3000);
+  //       })
+  //       .catch(error => console.error(error));
+  //     })
+  //   });
+  // }
 
   const handleCheckout = () => {
     setShowCheckout(true);
@@ -77,7 +77,7 @@ const ShoppingCart = () => {
           {cartList.length > 0 ? (
             <div className='checkout-container'>
               <div className='shopping-cart-container'>
-                <div className='flight-list'>{cartList}</div>
+                <div className='flight-list-cart'>{cartList}</div>
                 <div className='sum'>TOTAL: {toPay.toFixed(2)}$</div>
                 {/* <button className='buy-button press-buy' onClick={handleBuy}>Buy now</button> */}
                 <button className='buy-button press-buy' onClick={handleCheckout}>Checkout</button>

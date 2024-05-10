@@ -2,5 +2,34 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 10px;
 }
+
+input {
+    width: 50%;
+}
+
+.update-container {
+    display: flex;
+    align-items: start;
+}
+
+.addFlight-box-update {
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.flight-list-update {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+  

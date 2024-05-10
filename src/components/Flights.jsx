@@ -19,11 +19,6 @@ const Flights = () => {
         })
         .catch(error => console.error(error));
     }, []);
-    // const flightsList = flights.map((flight) =>
-    //     <div className='flight-in-list'>
-    //         <li key={flight.id}>{flight.airline}</li>
-    //     </div>
-    // );
 
     const values = flights.map((flight) => {
         if(!uniqueValues.has(flight.airline)) {

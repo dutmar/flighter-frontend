@@ -40,11 +40,11 @@ const HomePage = () => {
 
             {admin == 'true' && isLoggedIn ? (
                 <div>
-                    <button onClick={handleAdd}>Add flights</button>
-                    <button onClick={handleUpdate}>Update flights</button>
-                    <button onClick={handleDelete}>Delete flights</button>
-                    <button onClick={handleTickets}>Tickets</button>
-                    <button onClick={handleUsers}>Users</button>
+                    <button className="buy-button" onClick={handleAdd}>Add flights</button>
+                    <button className="buy-button" onClick={handleUpdate}>Update flights</button>
+                    <button className="buy-button" onClick={handleDelete}>Delete flights</button>
+                    <button className="buy-button" onClick={handleTickets}>Tickets</button>
+                    <button className="buy-button" onClick={handleUsers}>Users</button>
                 </div>
             ) : (
                 <div>

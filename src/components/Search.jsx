@@ -6,18 +6,11 @@ import '../styles/search.css'
 const Search = () => {
   const[origin, setOrigin] = React.useState('');
   const[destination, setDestination] = React.useState('');
-  const [flights, setFlights] = React.useState([]);
+  const [flights, setFlights] = React.useState([]);//svi letovi nakon pritiska na button fly
   const [isSubmitted, setSubmitted] = React.useState(false);
   const { isLoggedIn, login, logout } = useAuth();
-  const [flightsInCart, setFlightsInCart] = React.useState([]);
-
-  useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem('cart'));
-
-    if(stored.length > 0) {
-      setFlightsInCart(stored);
-    }
-  }, [])
+  const [flightsInCart, setFlightsInCart] = React.useState([]);//letovi koji dodamo u cart
+  const storedData = localStorage.getItem('cart');
 
   const handleSubmit = (e) => {
     setSubmitted(true);
@@ -36,11 +29,13 @@ const Search = () => {
 
   const handleButtonClick = (flightInCart) => {
     setFlightsInCart(current => [...current, flightInCart]);
+    //localStorage.setItem('cart', JSON.stringify(flightsInCart));
   }
 
-  localStorage.setItem('cart', JSON.stringify(flightsInCart));
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(flightsInCart));
+  }, [flightsInCart]);
 
-  
   const flightsList = flights.map((flight) => 
         <div key={flight.id} className="flight-in-list">
           <div className="flight-route">
@@ -90,7 +85,7 @@ const Search = () => {
       {isSubmitted ? (
         <div>
           {flightsList.length > 0 ? (
-          <div className="flight-list">{flightsList}</div>
+          <div className="flight-list-search">{flightsList}</div>
         ) : (
           <h1>No flights for that route</h1>
         )}

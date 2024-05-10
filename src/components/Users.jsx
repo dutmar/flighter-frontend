@@ -20,8 +20,6 @@ const Users = () => {
         fetchData();
     }, []);
 
-    console.log(users)
-
     return (
         <div>
             <Navbar/>

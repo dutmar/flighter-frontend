@@ -36,7 +36,7 @@ const AddFlight = () => {
                 <input placeholder="airline" value={airline} onChange={(e) => setAirline(e.target.value)}></input>
                 <input placeholder="price" value={price} onChange={(e) => setPrice(e.target.value)}></input>
                 <input placeholder="number of seats" value={seats} onChange={(e) => setSeats(e.target.value)}></input>
-                <button onClick={handleAdd}>Add</button>
+                <button className="buy-button" onClick={handleAdd}>Add</button>
             </div>
         </div>
         

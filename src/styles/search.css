@@ -21,7 +21,7 @@ form {
     border-radius: 3px;
 }
 
-.flight-list {
+.flight-list-search {
     margin: 20px;
     display: flex;
     flex-wrap: wrap;

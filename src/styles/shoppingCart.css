@@ -1,16 +1,11 @@
-.flight-list {
+.flight-list-cart {
     margin: 20px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    max-width: 500px;
 }
-
-/* .flight-list-cart {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-} */
 
 .flight-in-list {
     width: 20vw;

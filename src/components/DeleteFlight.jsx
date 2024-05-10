@@ -49,7 +49,7 @@ const DeleteFlight = () => {
             <div>
                 ID: {flight.id}
             </div>
-            <button onClick={() => handleDelete(flight.id)}>DELETE</button>
+            <button className="buy-button" onClick={() => handleDelete(flight.id)}>DELETE</button>
         </div>
     )
 
@@ -60,7 +60,7 @@ const DeleteFlight = () => {
             <div className="addFlight-box">
                 <input placeholder="origin" value={origin} onChange={(e) => setOrigin(e.target.value)}></input>
                 <input placeholder="destination" value={destination} onChange={(e) => setDestination(e.target.value)}></input>
-                <button onClick={handleId}>Find ID</button>
+                <button className="buy-button" onClick={handleId}>Find ID</button>
             </div>
 
             <div className="flight-list">
