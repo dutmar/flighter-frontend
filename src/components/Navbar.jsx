@@ -9,8 +9,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const { isLoggedIn, login, logout } = useAuth();
-    const [name, setName] = React.useState(JSON.parse(localStorage.getItem("profile")));
-    const [admin, setAdmin] = React.useState(JSON.parse(localStorage.getItem("admin")));
+    const [name, setName] = React.useState(JSON.parse(localStorage.getItem("profile")) || '');
+    const [admin, setAdmin] = React.useState(JSON.parse(localStorage.getItem("admin")) || 'false');
     const [items, setItems] = useState([]);
     const nav = useNavigate();
 
@@ -30,8 +30,8 @@ const Navbar = () => {
     });
 
     useEffect(() => {
-        setItems(JSON.parse(localStorage.getItem("cart")));
-    });
+        setItems(JSON.parse(localStorage.getItem("cart")) || []);
+    }, [items]);
 
   return (
     <nav>
@@ -68,7 +68,7 @@ const Navbar = () => {
                         {admin != 'true' && (
                             <NavLink to="/cart" className='navlink'>
                                 <img src={shoppingCart} alt='Cart' width={30} height={30}></img>
-                                {items.length}
+                                {typeof items !== null && items.length}
                             </NavLink>
                         )}
                     </li>

@@ -9,8 +9,7 @@ const Search = () => {
   const [flights, setFlights] = React.useState([]);//svi letovi nakon pritiska na button fly
   const [isSubmitted, setSubmitted] = React.useState(false);
   const { isLoggedIn, login, logout } = useAuth();
-  const [flightsInCart, setFlightsInCart] = React.useState([]);//letovi koji dodamo u cart
-  const storedData = localStorage.getItem('cart');
+  const [flightsInCart, setFlightsInCart] = React.useState(JSON.parse(localStorage.getItem('cart')) || []);//letovi koji dodamo u cart
 
   const handleSubmit = (e) => {
     setSubmitted(true);
@@ -33,7 +32,9 @@ const Search = () => {
   }
 
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(flightsInCart));
+    if(flightsInCart.length > 0) {
+      localStorage.setItem('cart', JSON.stringify(flightsInCart));
+    }
   }, [flightsInCart]);
 
   const flightsList = flights.map((flight) => 
