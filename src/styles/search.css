@@ -1,5 +1,7 @@
 .search-body {
-    margin: 20px;
+    margin: 20px 20px 60px;
+    justify-content: center;
+    align-items: center;
 }
 
 form {
@@ -47,4 +49,44 @@ form {
 .press-search {
     width: 8vw;
     font-size: 1rem;
+}
+
+.image-slider {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.why-us-container, .our-team-container {
+    padding: 20px;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.why-us-container {
+    align-self: flex-start;
+    display: flex;
+    max-width: 500px;
+    gap: 20px;
+    align-items: center;
+    background: linear-gradient(135deg, #A9A9A9, #2F4F4F);
+}
+
+.our-team-container {
+    align-self: flex-end;
+    display: flex;
+    max-width: 500px;
+    gap: 20px;
+    align-items: center;
+    background: linear-gradient(135deg, #A9A9A9, #2F4F4F);
 }
