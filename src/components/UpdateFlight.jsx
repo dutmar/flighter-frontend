@@ -49,8 +49,18 @@ const UpdateFlight = () => {
             <div>
                 ID: {flight.id}
             </div>
+            <button className="buy-button" onClick={() => handleSelect(flight)}>Select</button>
         </div>
     )
+
+    const handleSelect = (flight) => {
+        setId(flight.id);
+        setOrigin(flight.origin);
+        setDestination(flight.destination);
+        setAirline(flight.airline);
+        setPrice(flight.price);
+        setSeats(flight.noOfSeats);
+    }
 
     const handleUpdate = async () => {
         try {
