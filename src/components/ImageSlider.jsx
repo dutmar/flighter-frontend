@@ -19,7 +19,7 @@ const ImageSlider = ({ images, interval = 3000 }) => {
             <img 
                 src={images[currentIndex]} 
                 alt={`Slide ${currentIndex}`} 
-                style={{ width: '30vw', height: '25vh', borderRadius: '40px' }} 
+                style={{ width: '70vw', height: '40vh', borderRadius: '40px' }} 
             />
         </div>
     );

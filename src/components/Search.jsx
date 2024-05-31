@@ -12,14 +12,12 @@ const Search = () => {
   const { isLoggedIn, login, logout } = useAuth();
   const [flightsInCart, setFlightsInCart] = React.useState(JSON.parse(localStorage.getItem('cart')) || []);//letovi koji dodamo u cart
 
-  const planeImages = [
-    'https://www.savethestudent.org/uploads/flights.jpg',
-    'https://bsmedia.business-standard.com/_media/bs/img/article/2021-02/22/full/1613992796-763.jpg?im=FeatureCrop,size=(803,452)'
-  ]
-
   const destinationImages = [
     'https://media.cntraveler.com/photos/655cdf1d2d09a7e0b27741b5/16:9/w_2560%2Cc_limit/Cairo%2520Egypt_GettyImages-1370918272.jpg',
-    'https://assets-global.website-files.com/62200394843406293f033f05/62aa3477353beb24e56e68be_attractions-of-split.jpeg'
+    'https://assets-global.website-files.com/62200394843406293f033f05/62aa3477353beb24e56e68be_attractions-of-split.jpeg',
+    'https://traveler.marriott.com/wp-content/uploads/2023/07/GettyImages-1082428738.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/London_Skyline_%28125508655%29.jpeg/640px-London_Skyline_%28125508655%29.jpeg',
+    'https://media.tatler.com/photos/6141d37b9ce9874a3e40107d/16:9/w_2560%2Cc_limit/social_crop_sydney_opera_house_gettyimages-869714270.jpg'
   ]
 
   const handleSubmit = (e) => {
@@ -96,8 +94,7 @@ const Search = () => {
 
       {!isSubmitted && 
         <div className="image-slider">
-          <ImageSlider images={planeImages} interval={5000}/>
-          <ImageSlider images={destinationImages} interval={5000}/>
+          <ImageSlider images={destinationImages} interval={4000}/>
         </div>}
 
       {!isSubmitted && (

@@ -7,6 +7,7 @@ import '../styles/homePage.css'
 import { useNavigate } from 'react-router-dom';
 import planeBody from '../img/planeBody.jpg'
 import { useAuth } from './AuthContext';
+import '../styles/admin.css'
 
 const HomePage = () => {
     const [admin, setAdmin] = React.useState(JSON.parse(localStorage.getItem("admin")));
@@ -39,7 +40,7 @@ const HomePage = () => {
             <Footer/>
 
             {admin == 'true' && isLoggedIn ? (
-                <div>
+                <div className="admin-buttons">
                     <button className="buy-button" onClick={handleAdd}>Add flights</button>
                     <button className="buy-button" onClick={handleUpdate}>Update flights</button>
                     <button className="buy-button" onClick={handleDelete}>Delete flights</button>

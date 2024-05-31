@@ -60,7 +60,6 @@ form {
 
 .text-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     gap: 10px;
 }
@@ -74,19 +73,24 @@ form {
 }
 
 .why-us-container {
-    align-self: flex-start;
     display: flex;
-    max-width: 500px;
+    width: 50vw;
+    max-width: 600px;
     gap: 20px;
     align-items: center;
-    background: linear-gradient(135deg, #A9A9A9, #2F4F4F);
+    background: linear-gradient(135deg, #696969, #2F4F4F);
 }
 
 .our-team-container {
-    align-self: flex-end;
     display: flex;
-    max-width: 500px;
+    width: 50vw;
+    max-width: 600px;
     gap: 20px;
     align-items: center;
-    background: linear-gradient(135deg, #A9A9A9, #2F4F4F);
+    background: linear-gradient(135deg, #696969, #2F4F4F);
+}
+
+h2 {
+    color: black;
+    font-weight: 800;
 }

@@ -1,0 +1,16 @@
+.admin-buttons {
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-buttons button {
+    height: 20vh;
+    width: 20vw;
+}
+
+.admin-buttons > button {
+    flex: 50%;
+}
