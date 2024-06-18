@@ -12,10 +12,8 @@ const Checkout = (props) => {
     useEffect(() => {
         const fetchData = (async () => {
             const response = await apiClient.post('/api/stripe', {
-                amount: props.amount*100,
+                amount: props.amount,
             });
-            //const {client_secret: clientSecret} = await response.json();
-            // Render the form using the clientSecret
             setClientSecret(response.data);
         });
 

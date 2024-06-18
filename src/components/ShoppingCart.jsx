@@ -63,7 +63,7 @@ const ShoppingCart = () => {
                 <button className='buy-button press-buy' onClick={handleCheckout}>Checkout</button>
               </div>
               <div>
-                {showCheckout && <Checkout amount={toPay} cart={cart}/>}
+                {showCheckout && <Checkout amount={toPay*100} cart={cart}/>}
               </div>
             </div>
           ) : (

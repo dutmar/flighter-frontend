@@ -33,7 +33,9 @@ function App() {
           <Route path='/login' Component={Login} />
           <Route path='/register' Component={Register} />
           <Route path='/add' Component={AddFlight} />
+
           <Route path='/update' Component={UpdateFlight} />
+          
           <Route path='/delete' Component={DeleteFlight} />
           <Route path='/tickets' Component={Tickets} />
           <Route path='/checkout' Component={Checkout} />
